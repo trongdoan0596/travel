@@ -1,0 +1,83 @@
+FTP: Use MLST/MLSD command to list files
+FTP: Server rejected UTF-8 that it promised us: Unknown command
+New _gsdata_ folder(s) created, so rescan all job folders for their ghosts
+===== 5/19/2022 2:57:34 PM: Job 'Authentik-Travel.com': SYNC started by User on computer 'DONGTA' =====
+Authentik-Travel.com: D:\xampp\htdocs\authentiktravel.com <-> ftp://authentiktravel.com, SavePrevVers, CleanupPrevVers=30d, CleanupOldGens=24m, TmpDest, EstReq, CopyLocked, DetectMovesAndRenames, DetectFolderMoves, FileLinksDrill, Reconnect=3, ChangeLimit=10
+Locking folder D:\xampp\htdocs\authentiktravel.com for write
+Locking folder ftp://authentiktravel.com for write
+Sync State: /backend/themes/admin/calendar
+Sync State: /backend/themes/admin/commentvoucher
+Sync State: /backend/themes/admin/groupcode
+Sync State: /backend/themes/admin/groupcomment
+Sync State: /backend/themes/admin/grouphistory
+Sync State: /backend/themes/admin/groupnote
+Sync State: /backend/themes/admin/groupreview
+Sync State: /backend/themes/admin/grouptrouble
+Sync State: /backend/themes/admin/manager
+Sync State: /backend/themes/admin/modules
+Sync State: /backend/themes/admin/products
+Sync State: /backend/themes/admin/report
+Sync State: /backend/themes/admin/report_28-05-2018
+Sync State: /backend/themes/admin/seedo
+Sync State: /backend/themes/admin/service
+Sync State: /backend/themes/admin/servicefeedback
+Sync State: /backend/themes/admin/servicefilenote
+Sync State: /backend/themes/admin/servicephoto
+Sync State: /backend/themes/admin/serviceprice
+Sync State: /backend/themes/admin/servicepromotion
+Sync State: /backend/themes/admin/servicesub
+Sync State: /backend/themes/admin/source
+Sync State: /backend/views
+Sync State: /common/helper
+Copy Over 'D:\xampp\htdocs\authentiktravel.com\config\web.php' -> 'ftp://authentiktravel.com/config/web.php' (User Action)
+Copy Over 'D:\xampp\htdocs\authentiktravel.com\controllers\CommentController.php' -> 'ftp://authentiktravel.com/controllers/CommentController.php'
+Copy Over 'D:\xampp\htdocs\authentiktravel.com\controllers\SiteController.php' -> 'ftp://authentiktravel.com/controllers/SiteController.php' (User Action)
+Copy Over 'D:\xampp\htdocs\authentiktravel.com\controllers\TourController.php' -> 'ftp://authentiktravel.com/controllers/TourController.php'
+Sync State: /inputmn
+Sync State: /inputmn/assets/1c6e6b8/plugins
+Sync State: /inputmn/assets/1c6e6b8/plugins/a11yhelp
+Sync State: /inputmn/assets/1c6e6b8/plugins/a11yhelp/dialogs
+Sync State: /inputmn/themes
+Sync State: /inputmn/themes/web
+Sync State: /inputmn/themes/web/booktour
+Sync State: /inputmn/themes/web/country
+Sync State: /inputmn/themes/web/district
+Sync State: /inputmn/themes/web/drawmap
+Sync State: /inputmn/themes/web/guide
+Sync State: /inputmn/themes/web/region
+Sync State: /inputmn/themes/web/service
+Sync State: /inputmn/themes/web/user
+Sync State: /media
+Sync State: /media/article
+Sync State: /media/article/120_90
+Sync State: /media/article/340_220
+Sync State: /media/article/370_221
+Sync State: /media/article/450_230
+Create Folder 'D:\xampp\htdocs\authentiktravel.com\media\blog' (User Action)
+Sync State: /media/cate
+Sync State: /media/cate/430_270
+Create Folder 'D:\xampp\htdocs\authentiktravel.com\media\ckeditor' (User Action)
+Create Folder 'D:\xampp\htdocs\authentiktravel.com\media\ourteam' (User Action)
+Sync State: /media/promotion
+Sync State: /media/service
+Sync State: /media/tour/430_270
+Sync State: /media/user
+Sync State: /media/user/250_250
+Create Folder 'D:\xampp\htdocs\authentiktravel.com\media\video' (User Action)
+Sync State: /themes/mobi/img/article
+Sync State: /themes/mobi/img/silde
+Sync State: /themes/tablet/img/article
+Sync State: /themes/tablet/img/silde
+Sync State: /themes/web/img/article
+Sync State: /themes/web/img/silde/sub
+Sync State: /themes/web/js
+Sync State: /widgets/blog/tourblog
+Sync State: /widgets/page/header/views1
+Sync State: /widgets/page/popup
+Save State File D:\xampp\htdocs\authentiktravel.com\_gsdata_\_file_state_v4._gs
+Save State File ftp://authentiktravel.com/_gsdata_/_file_state_v4._gs
+Items Synced OK: 69, Errors: 0
+===== 5/19/2022 2:57:56 PM: Sync Completed. Time: 00:00:26, Speed: 56.0 KB/s =====
+Unlocking folder (set insync file) D:\xampp\htdocs\authentiktravel.com\_gsdata_\_insync_v4.gsl
+Unlocking folder (set insync file) ftp://authentiktravel.com/_gsdata_/_insync_v4.gsl
+
