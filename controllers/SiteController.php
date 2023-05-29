@@ -58,6 +58,7 @@ class SiteController extends Controller {
         return parent::beforeAction($action);
     }  
     public function actionIndex(){      
+        echo 333;die;
         $baseurl = 'https://authentiktravel.com/';
         $title   = 'Private Tours with a Local Travel Agency in Vietnam';
         $this->view->title = $title; 
