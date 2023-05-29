@@ -1,4 +1,5 @@
 <?php
+$db = require __DIR__ . '/db.php';
 return array(
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'sourceLanguage' => 'en',
@@ -13,18 +14,19 @@ return array(
         'cache' => array(
             'class' => 'yii\caching\FileCache',           
         ),
-        'db' =>  array(
-		     'class' => 'yii\db\Connection',            
-             'dsn' => 'mysql:host=localhost;dbname=travel',//localhost
-			 'username' => 'root',
-			 'password' => '',
-             'enableSchemaCache' => true,
-             // Duration of schema cache.
-             'schemaCacheDuration' => 3600,
-             //Name of the cache component used to store schema information
-            //  'schemaCache' => 'cache',
-			 'charset' => 'utf8',
-        ),
+        'db' => $db,
+        // 'db' =>  array(
+		//      'class' => 'yii\db\Connection',            
+        //      'dsn' => 'mysql:host=localhost;dbname=travel',//localhost
+		// 	 'username' => 'root',
+		// 	 'password' => '',
+        //      'enableSchemaCache' => true,
+        //      // Duration of schema cache.
+        //      'schemaCacheDuration' => 3600,
+        //      //Name of the cache component used to store schema information
+        //     //  'schemaCache' => 'cache',
+		// 	 'charset' => 'utf8',
+        // ),
         // 'db' =>  array(
 		//      'class' => 'yii\db\Connection',            
         //      'dsn' => 'mysql:host=103.56.161.18;dbname=gekbhbrchosting_authentiktravel_dev',//localhost
