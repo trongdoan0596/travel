@@ -23,6 +23,8 @@ Thumbs.db
 /common/config
 /common/config/db.php
 
+/media
+
 # composer itself is not needed
 composer.phar
 composer.json
