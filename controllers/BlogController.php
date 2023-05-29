@@ -41,15 +41,17 @@ class BlogController extends Controller {
 public function actionIndex(){    
         $cid     = Yii::$app->request->get('bcid',0);      
         $baseurl = 'https://authentiktravel.com';          
+        
         if($cid==0){  
-               $alias = Yii::$app->request->get('title',''); 
-               if($alias=='') $alias = Yii::$app->request->pathInfo; 
-               $infocate = Blogcate::getDetailAlias($alias);  
-               if(!empty($infocate)) $cid = $infocate->id;    
-         }else{
+            $alias = Yii::$app->request->get('title',''); 
+            if($alias=='') $alias = Yii::$app->request->pathInfo; 
+            $infocate = Blogcate::getDetailAlias($alias);  
+            if(!empty($infocate)) $cid = $infocate->id;    
+        }else{
             $infocate = Blogcate::getDetailBlogcate($cid); 
-         }       
+        }       
         $sql  = Blog::find()->where(['status'=>1]);
+    
         if($cid>0){
             Blogcate::getAllIds($arr,$cid);
             if(!empty($arr)){
@@ -73,6 +75,10 @@ public function actionIndex(){
         $count  = clone $sql;
         $pages  = new Pagination(['totalCount'=>$count->count(),'pageSize'=>9]);
         $rows   = $sql->offset($pages->offset)->limit($pages->limit)->orderBy('last_update desc')->all();
+        echo '<pre>';
+        print_r($rows);
+        echo '</pre>';
+        die;
         $title  = $metadesc = $metakey = '';
         $info   = Article::getDetailArticle(194);
         if(!empty($infocate)){

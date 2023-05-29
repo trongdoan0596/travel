@@ -19,10 +19,12 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
+/common/config
+/common/config/db.php
 
 # composer itself is not needed
 composer.phar
-
+composer.json
 # Mac DS_Store Files
 .DS_Store
 

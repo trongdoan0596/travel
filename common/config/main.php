@@ -1,4 +1,5 @@
 <?php
+$db = require __DIR__ . '/db.php';
 return array(
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'sourceLanguage' => 'en',
@@ -25,14 +26,7 @@ return array(
         //     //  'schemaCache' => 'cache',
 		// 	 'charset' => 'utf8', 
         // ),
-        'db' =>  array(
-             'class' => 'yii\db\Connection',
-             'dsn' => 'mysql:host=208.76.221.196:3306;dbname=authentiktravel',
-             'username' => 'trongdoan',
-             'password' => 'Superc0m',
-             'charset' => 'utf8',
-             'emulatePrepare' => true
-        ),
+        'db' =>  $db,
 
         'languageSwitcher' =>array(
             'class' => 'common\components\languageSwitcher',
