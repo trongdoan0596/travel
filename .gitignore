@@ -18,18 +18,18 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
+# /vendor
 
-/runtime
+# /runtime
 
-/widgets
+# /widgets
 
 # composer itself is not needed
-composer.phar
+# composer.phar
 
-index.php
+# index.php
 
-/common/config
+# /common/config
 
 # Mac DS_Store Files
 .DS_Store
