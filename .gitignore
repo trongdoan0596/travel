@@ -29,6 +29,8 @@ composer.phar
 
 index.php
 
+/common/config
+
 # Mac DS_Store Files
 .DS_Store
 
