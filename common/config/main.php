@@ -23,19 +23,15 @@ return array(
         //      'schemaCacheDuration' => 3600,
         //      //Name of the cache component used to store schema information
         //     //  'schemaCache' => 'cache',
-		// 	 'charset' => 'utf8',
+		// 	 'charset' => 'utf8', 
         // ),
         'db' =>  array(
-		     'class' => 'yii\db\Connection',            
-             'dsn' => 'mysql:host=208.76.221.196;dbname=authentiktravel',//localhost
-			 'username' => 'trongdoan',
-			 'password' => 'Superc0m',
-             'enableSchemaCache' => true,
-             // Duration of schema cache.
-             'schemaCacheDuration' => 3600,
-             //Name of the cache component used to store schema information
-            //  'schemaCache' => 'cache',
-			 'charset' => 'utf8',
+             'class' => 'yii\db\Connection',
+             'dsn' => 'mysql:host=208.76.221.196:3306;dbname=authentiktravel',
+             'username' => 'trongdoan',
+             'password' => 'Superc0m',
+             'charset' => 'utf8',
+             'emulatePrepare' => true
         ),
 
         'languageSwitcher' =>array(
