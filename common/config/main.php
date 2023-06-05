@@ -28,7 +28,7 @@ return array(
         // ),
         'db' =>  $db,
 
-        'languageSwitcher' =>array(
+array(
             'class' => 'common\components\languageSwitcher',
         ),
        'i18n' =>array(
