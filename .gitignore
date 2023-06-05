@@ -21,7 +21,7 @@ Thumbs.db
 
 /vendor
 /common/config
-/common/config/db.php
+/common/config/config_db.php
 
 /media
 
@@ -38,3 +38,4 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+/assets
