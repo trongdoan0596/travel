@@ -42,6 +42,7 @@ class ArticleController extends Controller {
         return $this->render('index');        
     }
     public function actionViewaboutus() { 
+        echo 111;die;
         $id    = 174;
         $model = Article::getDetailArticle($id);   
         $url   = '#';
