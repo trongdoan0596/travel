@@ -27,7 +27,7 @@ class AppAsset extends AssetBundle
         '/assets/global/plugins/select2/select2.css',
         'css/formplugins/bootstrap-daterangepicker/bootstrap-daterangepicker.css',
         'css/default_skin.css',
-        'css/videojs-hls-player.css',
+        'css/videojs-hls-player.css', 
         'css/app.bundle.css',
         'css/vendors.bundle.css',
         'css/themes/cust-theme-2.css',
