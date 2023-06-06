@@ -31,6 +31,7 @@ class AppAsset extends AssetBundle
         'css/app.bundle.css',
         'css/vendors.bundle.css',
         'css/themes/cust-theme-2.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
     );
     public $js = array(
        // 'themes/web/js/uikit.min.js',

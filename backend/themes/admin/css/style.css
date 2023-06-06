@@ -35,6 +35,7 @@ a:hover,a:focus {
  }
 .summary {
     padding-top: 8px;
+    margin-bottom: 15px;
 }
 .glyphicon-trash {
     cursor: pointer;
@@ -525,4 +526,23 @@ div.boxtools .control-group{
     max-width: 100%;
 
     min-height: 1px;        
+}
+.href_class::before {
+    font-family: FontAwesome !important;
+    content: "\f107" !important;
+    position: absolute !important;
+    right: 10px !important;
+    display: block !important;
+    top: 10px !important;
+    font-size: 16px !important;
+    color: #fff !important;
+}
+.nav-menu li > ul{
+    padding: 0 !important;
+}
+.grid-view{
+    padding: 1rem;
+    background: #fff;
+    box-shadow: 0px 0px 13px 0px rgba(74, 53, 107, 0.08);
+    border-radius: 4px;
 }
