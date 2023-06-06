@@ -75,10 +75,7 @@ public function actionIndex(){
         $count  = clone $sql;
         $pages  = new Pagination(['totalCount'=>$count->count(),'pageSize'=>9]);
         $rows   = $sql->offset($pages->offset)->limit($pages->limit)->orderBy('last_update desc')->all();
-        echo '<pre>';
-        print_r($rows);
-        echo '</pre>';
-        die;
+     
         $title  = $metadesc = $metakey = '';
         $info   = Article::getDetailArticle(194);
         if(!empty($infocate)){
