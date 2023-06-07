@@ -111,6 +111,7 @@ if(Yii::$app->user->getIsGuest()){
         	            'url' =>array('category/index'),
         	            'options'=>array('class'=>'nav-header'),
         	            //'template' => '<a href="{url}" class="href_class">{label}</a>',
+                        'template' => '<a href="javascript:void(0)" class="href_class">{label}</a>',
         	            'items' =>array(
         	                array('label' => 'Category', 'url' =>array('category/index')),
                             array('label' => 'Article', 'url' => array('article/index')),
