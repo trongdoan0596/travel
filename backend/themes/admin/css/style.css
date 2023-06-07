@@ -1,7 +1,7 @@
 a, a:visited {
     /* color:green; */
     text-decoration: none;
-    font-size: 12px;
+    font-size: 13px;
 }
 a:hover,a:focus {
     text-decoration: underline;
@@ -14,11 +14,11 @@ a:hover,a:focus {
 }
 .uk-table th a {
     color: #333;
-    font-size: 12px;
+    font-size: 13px;
  }
 .uk-table th {
     color: #333;
-    font-size: 12px;
+    font-size: 13px;
  }
 
 .tabnew {
@@ -56,7 +56,7 @@ a:hover,a:focus {
     cursor: pointer;
     color: green !important;
     float: right;
-    padding-right:12px;
+    padding-right:13px;
 }
 .fixiconsaveordering {
     cursor: pointer;
@@ -107,7 +107,7 @@ a:hover,a:focus {
     font-weight: 200;
     line-height: 1;
     margin-left: -20px;
-    padding: 8px 20px 12px;
+    padding: 8px 20px 13px;
 }
 #header a {
     color: #ffffff;
@@ -371,7 +371,7 @@ div.field-itemimg-img input{
     width: 950px !important;
 }
 h3.booktour-detail-title {
-    font-size: 12px;
+    font-size: 13px;
     margin: 0px;
     padding: 0px;
     background: none !important;
@@ -399,7 +399,7 @@ div.detaillist .uk-width-1-10 {
     text-align: center;
     padding-left: 4px;
     padding-right: 4px;
-    font-size: 12px;
+    font-size: 13px;
 }
 div.detaillist .listtitleday { 
     width: 44% !important;
@@ -409,7 +409,7 @@ div.detaillist .listtitleday {
 }
 div.detaillist .listtitleday .booktour-detail-title{
     font-weight: normal !important;
-    font-size: 12px;
+    font-size: 13px;
 }
 div.detaillist .titleday {
      width: 8% !important;
@@ -426,10 +426,10 @@ div.detaillist .actionicon {
 }
 .history {
     font-weight: normal !important;
-    font-size: 12px !important;
+    font-size: 13px !important;
 }
 .history h3{
-    font-size: 12px !important;
+    font-size: 13px !important;
     font-weight: normal !important;
     background:none !important;
     margin-bottom: 0px !important;
