@@ -66,7 +66,7 @@ use dosamigos\ckeditor\CKEditor;
              <div class="control-group">
                 <div class="controls">
                     <?php
-                      $model->country_ids = explode(",", $model->country_ids);
+                    //   $model->country_ids = explode(",", $model->country_ids);
                       echo $form->field($model,'country_ids')->checkboxList(ArrayHelper::map($country, 'id','name'));
                     ?>
                 </div>
@@ -155,7 +155,7 @@ use dosamigos\ckeditor\CKEditor;
  <div class="control-group">
         <div class="controls">
             <?php
-              $model->destination_ids = explode(",",$model->destination_ids);
+            //   $model->destination_ids = explode(",",$model->destination_ids);
               echo $form->field($model,'destination_ids')->checkboxList(ArrayHelper::map($destination, 'id','title'));
             ?>
         </div>
