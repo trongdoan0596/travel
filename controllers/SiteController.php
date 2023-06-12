@@ -164,6 +164,31 @@ class SiteController extends Controller {
                     //$model->SendEmailConfirm($model,0);   
                     $msg1 = Yii::t('app', 'Thank you for sending email to Authentik Travel! <br />Our team will reply you within 12 – 24 hours.');
                     $msg = $msg1.$msg2;
+
+                    //bot telegram
+                    $token = '6107360236:AAEN3j5q-d4_zBXXF0yBbePOODXApzJNEDk';
+                    $link = 'https://api.telegram.org:443/bot'.$token.'';
+                    $getupdate = file_get_contents($link.'/getUpdates');
+                    $responsearray = json_decode($getupdate, TRUE);
+                    $chatid = $responsearray['result'][0]['my_chat_member']['chat']['id'];
+                    $message = '
+                    Contact:
+                    Giới tính: '. $post['ContactForm']['slcgender'] .'
+                    Họ và tên: '. $post['ContactForm']['title'] .'
+                    Quốc tịch: '.  $post['ContactForm']['nationality'] .'
+                    Số điện thoại: '.  $post['ContactForm']['phone'] .'
+                    Email: '.  $post['ContactForm']['email'] .'
+                    Nội dung: '.  $post['ContactForm']['mess'] .'
+                    ';
+                     
+                    $parameter = array(
+                            'chat_id' => $chatid, 
+                            'text' => $message
+                            );
+                     
+                    $request_url = $link.'/sendMessage?'.http_build_query($parameter); 
+                    file_get_contents($request_url);
+                    //end chatbot telegram
                     return $this->render('msg',array('msg'=>$msg,'model'=>$model,'booktour'=>$booktour)); 
                 } 
                 
