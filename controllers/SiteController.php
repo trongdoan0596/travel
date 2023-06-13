@@ -168,23 +168,25 @@ class SiteController extends Controller {
                     //bot telegram
                     $token = '6107360236:AAEN3j5q-d4_zBXXF0yBbePOODXApzJNEDk';
                     $link = 'https://api.telegram.org:443/bot'.$token.'';
-                    $getupdate = file_get_contents($link.'/getUpdates');
-                    $responsearray = json_decode($getupdate, TRUE);
-                    $chatid = $responsearray['result'][0]['my_chat_member']['chat']['id'];
-                    $message = '
-                    Contact:
-                    Giới tính: '. $post['ContactForm']['slcgender'] .'
-                    Họ và tên: '. $post['ContactForm']['title'] .'
-                    Quốc tịch: '.  $post['ContactForm']['nationality'] .'
-                    Số điện thoại: '.  $post['ContactForm']['phone'] .'
-                    Email: '.  $post['ContactForm']['email'] .'
-                    Nội dung: '.  $post['ContactForm']['mess'] .'
-                    ';
-                     
-                    $parameter = array(
-                            'chat_id' => '-1001802661795',//$chatid, 
-                            'text' => $message
-                            );
+                    // $getupdate = file_get_contents($link.'/getUpdates');
+                    // $responsearray = json_decode($getupdate, TRUE);
+                    // $chatid = $responsearray['result'][0]['my_chat_member']['chat']['id'];
+
+                    $message = 
+                    "<strong>Nguồn: Form liên hệ</strong>\n".
+                    '<strong>Giới tính:</strong> ' . $post['ContactForm']['slcgender'] . "\n".
+                    '<strong>Họ và tên:</strong> ' . $post['ContactForm']['title'] . "\n".
+                    '<strong>Quốc tịch:</strong> ' . $post['ContactForm']['nationality'] . "\n".
+                    '<strong>Số điện thoại:</strong> ' . $post['ContactForm']['phone'] . "\n".
+                    '<strong>Email:</strong> <a href="mailto:' . $post['ContactForm']['email'] . '"> ' . $post['ContactForm']['email'] . "</a>\n".
+                    '<strong>Nội dung:</strong> ' . $post['ContactForm']['mess'] . "\n".
+                    '<a href="https://authentiktravel.com/backend/booktour/update/'. $booktour->id .'">Quản trị</a>' . "\n";
+                    
+                        $parameter = array(
+                        'chat_id' => '-1001802661795',//$chatid, 
+                        'parse_mode' => 'HTML',
+                        'text' => $message
+                        );
                      
                     $request_url = $link.'/sendMessage?'.http_build_query($parameter); 
                     file_get_contents($request_url);
