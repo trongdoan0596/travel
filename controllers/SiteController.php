@@ -182,7 +182,7 @@ class SiteController extends Controller {
                     ';
                      
                     $parameter = array(
-                            'chat_id' => $chatid, 
+                            'chat_id' => '-1001802661795',//$chatid, 
                             'text' => $message
                             );
                      
