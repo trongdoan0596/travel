@@ -58,7 +58,7 @@ class SiteController extends Controller {
         return parent::beforeAction($action);
     }  
     public function actionIndex(){      
-        $baseurl = 'https://authentiktravel.com/';
+        $baseurl = 'https://authentiktravel.com/'; //a
         $title   = 'Private Tours with a Local Travel Agency in Vietnam';
         $this->view->title = $title; 
         $this->view->registerMetaTag(array('name'=>'keywords','content'=>'Private tours Vietnam, Vietnam travel agency, Vietnam tours, Vietnam Tour, Private tours Myanmar, Myanmar Travel Agency, Myanmar Tours, Myanmar Tour'));  
