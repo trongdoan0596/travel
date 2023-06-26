@@ -88,7 +88,7 @@ if(!empty($details)){
                 <div class="serviceinclude" style="background: white;">
                       <h5 style="background: white;border-bottom: 0px !important; height: 30px !important; "><?php echo Yii::t('app','Private tour price');?></h5>                 
                       <div class="content">
-                       <p align="center"><?php echo Yii::t('app','The prices are quoted on USD and based on per pax (Twin/double sharing - 3 star accommodation)<br />Valid to 31 December 2020');?></p>
+                       <?= $model->private_tour_price ?>
                        <table class="uk-table tablepax">                  
                             <tbody>
                                 <tr>

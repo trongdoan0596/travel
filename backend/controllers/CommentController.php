@@ -59,6 +59,17 @@ public function afterAction($action, $result){
  public function actionIndex() {      
          $model = new Comment();   
          $dataProvider = $model->search(Yii::$app->request->get());  
+
+         if(isset($_POST['delete_list_id']) && !empty($_POST['delete_list_id'])){
+            $list_id_delete = $_POST['delete_list_id'];
+            foreach($list_id_delete as $item) {
+                $model = $this->loadModel($item);
+                $userid = Yii::$app->user->identity->id;
+                $model->delete();
+            }
+            echo 1;
+            exit;
+         }
         return $this->render('index',array('model' =>$model,'dataProvider' => $dataProvider));
     }
   //create
@@ -115,6 +126,7 @@ public function actionDelete($id) {
          }        
         return $this->redirect(array('index'));
     }
+
 public function loadModel($id) {
         $model = Comment::findOne($id);       
         if ($model === null)

@@ -49,6 +49,7 @@ use common\helper\StringHelper;
  * @property string  $pax4
  * @property string  $pax5
  * @property string  $pax_single
+ * @property string  $private_tour_price
  * 
  */ 
  
@@ -63,8 +64,7 @@ class Tour extends ActiveRecord {
     public $ext_tour_id;
     public $ext_status;
     public $ext_ordering;
-    
-    
+
     public static function tableName(){
         /*$language = Yii::$app->request->get('language','');
          if(empty($language)){
@@ -92,7 +92,7 @@ class Tour extends ActiveRecord {
                           'num_day','price_include','price_not_include','price_from','embedcode_map','status','featured','start',
                           'img','img1','img2','img3','imgmap','pdf','metatitle',
                           'country_ids','destination_ids','ordering','last_update','create_date','lang','user_id',
-                          'user_modify','pax1','pax2','pax3','pax4','pax5','pax_single'
+                          'user_modify','pax1','pax2','pax3','pax4','pax5','pax_single','private_tour_price'
                        ),
                   'safe'
              ),
@@ -136,6 +136,7 @@ class Tour extends ActiveRecord {
                         'pax4' => '5 - 7 pax',
                         'pax5' => '>8 pax',
                         'pax_single' => 'Single Supplement',
+                        'private_tour_price' => 'Private tour price',
             		);
 		return $labels;
 	}
@@ -206,7 +207,7 @@ class Tour extends ActiveRecord {
               if($width>0 && $height>0){
                 $retUrl = '../../media/tour/'.$width.'_'.$height.'/'.$img;
               }else{
-                $retUrl = '../../media/tour/'.$img;
+                $retUrl = '/../../media/tour/'.$img;
               }    
           
         }

@@ -28,8 +28,7 @@ use yii\helpers\Url;
                   <h6><?php echo Yii::t('app','Contact Us');?></h6>
                   <font class="footertitle">Add:</font> <?php echo Yii::t('app','Room 406, 4th floor, 62 Yen Phu road, Nguyen Trung Truc ward, Ba Dinh district, Ha Noi, Vietnam');?>.<br />
                     <font class="footertitle">Tel:</font> +84 (0) 24 39 27 11 99<br />+84 (0) 24 62 90 55 99<br />
-                    <font class="footertitle">Cellphone:</font> +84 (0) 96 9 72 99 83 (Whatsapp/viber)<br />
-                    <font class="footertitle">Skype:</font> sales@authentiktravel.com<br />
+                    <font class="footertitle">Cellphone:</font> +84912121091 (Whatsapp/viber)<br />
                     <font class="footertitle">W:</font><a href="<?php echo Yii::$app->homeUrl;?>" target="_blank"> www.authentiktravel.com.</a><br />
                     <font class="footertitle">E:</font><a href="mailto:sales@authentiktravel.com"> sales@authentiktravel.com</a>
              </div>

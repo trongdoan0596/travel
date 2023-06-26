@@ -38,7 +38,6 @@ use yii\helpers\Url;
                         <?php echo $form->field($model,'ordering')->textInput(array('class' => 'form-control')); ?>
                     </div>
                 </div>  
-                     
     </div>
      <div class="uk-width-1-3">
            <div class="control-group">
@@ -49,6 +48,11 @@ use yii\helpers\Url;
                         <?php } ?>
                       </div>
             </div>   
+            <div class="control-group">
+                <div class="controls" >
+                    <?php echo $form->field($model,'position')->textInput(array('class' => 'form-control')); ?>
+                </div>
+            </div>  
      </div>
 </div>
 <div class="control-group">
