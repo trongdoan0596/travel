@@ -178,6 +178,7 @@ class TourController extends Controller {
        $img_3   = $model->img3;
        $pdf_old    = $model->pdf;
        $imgmap_old = $model->imgmap;
+
        $post  = Yii::$app->request->post();
 	   if ($model->load($post)) {  
              $model->attributes  = $post['Tour'];
@@ -185,6 +186,7 @@ class TourController extends Controller {
                 echo 'Error Title!';
                 die();                
              }             
+        
              if($model->country_ids!='') $model->country_ids = implode(",",$model->country_ids);
              if($model->destination_ids!='')  $model->destination_ids = implode(",",$model->destination_ids);
              if (isset($_FILES['Tour']["name"]["img"]) && $_FILES['Tour']["name"]["img"]!='') {
@@ -236,6 +238,7 @@ class TourController extends Controller {
                        $model->update();
                    }
              }
+      
        }     
       $catetour   = Tourcate::getAllParentsTree();
       $allcity    = Region::getRegion();//danh sach cac city
@@ -245,6 +248,9 @@ class TourController extends Controller {
       $alltourext = Tourextentions::GetTourExt($id);
       $country    = Country::getCountry();
       $destination= Destination::getAllDestination();
+    //   echo '<pre>';
+    //   print_r($model);
+    //   echo '</pre>';die;
       return $this->render('update', array(
             'model' => $model,
             'catetour' =>$catetour, 
