@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\widgets\Menu;
 use yii\helpers\Html;
 use app\models\Account;
+use yii\jui\DatePicker;
 ?>
 <h1 class="title-page">Account Manager</h1>
 <?php
@@ -15,6 +16,10 @@ echo Menu::widget(array(
     ),
     'options'=>array('class'=>'nav nav-tabs'),
 ));
+
+echo $this->render('_search', ['model' => $dataProvider->getModels()]); 
+
+
 echo GridView::widget(array(
     'dataProvider' => $dataProvider,
     //'filterModel' => $model,

@@ -179,6 +179,7 @@ use yii\helpers\Html;
        }else{
            $model   = Tour::getDetailTour($id);  
        } 
+    
        $details = $start =array();
        $url = '#';
        if(!empty($model)){
@@ -210,6 +211,7 @@ use yii\helpers\Html;
             }  
                 
        }
+
        return $this->render('view',array(
                 'model' => $model,
                 'details' => $details,
@@ -659,6 +661,33 @@ use yii\helpers\Html;
                  $booktour->is_mobile = 2;//la Tablet
             }
             if ($booktour->save(false)) {
+               //bot telegram
+               $token = '6107360236:AAEN3j5q-d4_zBXXF0yBbePOODXApzJNEDk';
+               $link = 'https://api.telegram.org:443/bot'.$token.'';
+               // $getupdate = file_get_contents($link.'/getUpdates');
+               // $responsearray = json_decode($getupdate, TRUE);
+               // $chatid = $responsearray['result'][0]['my_chat_member']['chat']['id'];
+
+               $message = 
+               "<strong>Nguồn: Form Tour</strong>\n".
+               '<strong>Người tham gia:</strong> người lớn ' . $post['CustomizeForm']['number_adults'] .', trẻ em: '. $post['CustomizeForm']['number_children']."\n".
+               '<strong>Độ dài chuyến đi:</strong> ' . $post['CustomizeForm']['number_nights'] . "\n".
+               '<strong>Tin nhắn:</strong> ' . $post['CustomizeForm']['descriptiontxt'] . "\n".
+               '<strong>Gới tính:</strong> ' . $post['CustomizeForm']['slcgender'] . "\n".
+               '<strong>Họ và tên:</strong> ' . $post['CustomizeForm']['firstname'] .' '. $post['CustomizeForm']['firstname'] . "\n".
+               '<strong>Quốc gia:</strong> ' . $post['CustomizeForm']['nationality'] . "\n".
+               '<strong>Số điện thoại:</strong> ' . $post['CustomizeForm']['phone'] . "\n".
+               '<strong>Email:</strong> <a href="mailto:' . $post['CustomizeForm']['email'] . '"> ' . $post['CustomizeForm']['email'] . "</a>\n";
+               // '<a href="https://authentiktravel.com/backend/booktour/update/'. $booktour->id .'">Quản trị</a>' . "\n";
+                  $parameter = array(
+                  'chat_id' => '-1001802661795',//$chatid, 
+                  'parse_mode' => 'HTML',
+                  'text' => $message
+                  );
+               
+               $request_url = $link.'/sendMessage?'.http_build_query($parameter); 
+               file_get_contents($request_url);
+               //end chatbot telegram
                 //co nen tao thong tin khach hang luon ko ,neu chua co tao moi,
                 // neu co roi thi gan thong cho user dua vao cai' gi ,email hay phone               
                 //gui email cho khach

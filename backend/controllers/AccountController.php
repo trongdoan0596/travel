@@ -19,6 +19,7 @@ use Imagine\Gd;
 use Imagine\Image\Box;
 use Imagine\Image\BoxInterface;
 use common\models\Log;
+
 class AccountController extends Controller {
     public $layout='main';
     public $enableCsrfValidation = false;
@@ -64,10 +65,97 @@ class AccountController extends Controller {
         Log::AddLog("add",$id,0,'',$this->action->id,'Account');     
         return $result;
     } 
- public function actionIndex() {      
+ public function actionIndex() {   
          $model = new Account();   
-         $dataProvider = $model->search(Yii::$app->request->get());         
+         $dataProvider = $model->search(Yii::$app->request->get());        
+         
+         if(!empty($_GET['date_start']) && !empty($_GET['date_end']) && isset($_GET['_export']))
+         {
+            $date_start = $_GET['date_start'];
+            $date_end = $_GET['date_end'];
+
+            $query =  Account::find()
+            ->where(['between', 'created', $date_start, $date_end ])->all();
+            if(!empty($query)){
+                $this->exportData($query);
+            }
+            
+         }
+  
         return $this->render('index',array('model' =>$model,'dataProvider' => $dataProvider));
+    }
+    private function exportData($dataProvider){
+        if( !empty($dataProvider) ){
+            $objPHPExcel = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+            $sheet=0;
+
+            $objPHPExcel->setActiveSheetIndex($sheet);
+
+            $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
+            $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
+            $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
+
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 1, 'first name');
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 1, 'last name');
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 1, 'email');
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, 1, 'phone');
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5, 1, 'create');
+      
+
+            foreach ($dataProvider as $dk => $dv){
+                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, $dk+2, $dv->first_name);
+                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, $dk+2, $dv->last_name);
+                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, $dk+2, $dv->email);
+                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(4, $dk+2, $dv->phone);
+                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(5, $dk+2, $dv->created);
+            }
+
+            header('Content-Type: application/vnd.ms-excel');
+            $filename = "data_account.xls";
+            header('Content-Disposition: attachment;filename='.$filename .' ');
+            header('Cache-Control: max-age=0');
+            $objWriter = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($objPHPExcel, 'Xls');
+            $objWriter->save('php://output');
+            die();
+
+        }
+    }
+    public static function exportDataExcel($header, $data, $file_name)
+    {
+        if (empty($data)) {
+            exit();
+        }
+        $excel = new PHPExcel();
+        $excel->setActiveSheetIndex(0);
+        $excel->getActiveSheet()->setTitle('Danh sách');
+        $lastColumn = '';
+        for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
+            $excel->getActiveSheet()->getColumnDimension($j)->setAutoSize(true);
+            $lastColumn = $j;
+        }
+        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFont()->setBold(true);
+        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+        $excel->getActiveSheet()->getStyle("A1:" . $lastColumn . "1")->getFill()->setFillType(\PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB('FFE8E5E5');
+        for($i=1 ,$j='A'; $i <= count($header);$i++,$j++) {
+            $excel->getActiveSheet()->setCellValue($j .'1', $header[$i - 1]);
+        }
+        $numRow = 2;
+        foreach ($data as $key => $row) {
+            for($i=1 ,$j='A'; $i <= count($row);$i++,$j++) {
+                $excel->getActiveSheet()->setCellValue($j . $numRow, $row[$i - 1]);
+            }
+            
+            $numRow++;
+        }
+        header('Content-type: application/.xlsx');
+        header('Content-Disposition: attachment; filename="report.xlsx"');
+        $excel = \PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
+        $excel->save('php://output');
+
+        header('Content-type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename="' . $file_name . '.xls"');
+        PHPExcel_IOFactory::createWriter($excel, 'Excel5')->save('php://output');
+        exit;
     }
   //create
   public function actionCreate() {

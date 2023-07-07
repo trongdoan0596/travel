@@ -233,6 +233,29 @@ class ArticleController extends Controller {
             $article->create_date = date("Y-m-d H:i:s");
             if ($article->save(false)){
                 $model->SendEmail($model,$article);
+                //bot telegram
+                $token = '6107360236:AAEN3j5q-d4_zBXXF0yBbePOODXApzJNEDk';
+                $link = 'https://api.telegram.org:443/bot'.$token.'';
+                // $getupdate = file_get_contents($link.'/getUpdates');
+                // $responsearray = json_decode($getupdate, TRUE);
+                // $chatid = $responsearray['result'][0]['my_chat_member']['chat']['id'];
+
+                $message = 
+                "<strong>Nguồn: Form About</strong>\n".
+                '<strong>Tiêu đề:</strong> người lớn ' . $model->title ."\n".
+                '<strong>Họ và tên:</strong> ' . $model->name . "\n".
+                '<strong>Quốc gia:</strong> ' . $model->country . "\n".
+                '<strong>Số điện thoại:</strong> ' . $model->phone . "\n".
+                '<strong>Email:</strong> <a href="mailto:' . $model->email . '"> ' . $model->email . "</a>\n";
+                    $parameter = array(
+                    'chat_id' => '-1001802661795',//$chatid, 
+                    'parse_mode' => 'HTML',
+                    'text' => $message
+                    );
+                
+                $request_url = $link.'/sendMessage?'.http_build_query($parameter); 
+                file_get_contents($request_url);
+                //end chatbot telegram
             } 
             Yii::$app->session->setFlash('msg', 'Thank you send mail for us.');          
          }     
